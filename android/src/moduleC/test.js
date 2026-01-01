@@ -25,7 +25,7 @@ describe("BStack tests - Module C", () => {
     await driver.quit();
   })
 
-  test("flaky test - valid v/s invalid search string", async () => {
+  test("flaky test - intermittently passes and fails", async () => {
     var insertTextSelector = await driver.wait(
         until.elementLocated(
           By.xpath(
@@ -63,11 +63,11 @@ describe("BStack tests - Module C", () => {
     } catch (error) {
       assert.fail(error);
     }
-  }, 30000);
+  }, 3000);
 
   test("always passing test - example C", async () => {
     assert(true);
-  }, 30000);
+  }, 3000);
 
   test("always failing test - same stacktrace 1", async () => {
     try {
@@ -83,7 +83,7 @@ describe("BStack tests - Module C", () => {
     } catch (error) {
       assert.fail(error);
     }
-  }, 30000);
+  }, 3000);
 
   test("always failing test - same stacktrace 2", async () => {
     try {
@@ -99,34 +99,17 @@ describe("BStack tests - Module C", () => {
     } catch (error) {
       assert.fail(error);
     }
-  }, 30000);
+  }, 3000);
 
   test("always passing test - example D", async () => {
     assert(true);
-  }, 30000);
+  }, 3000);
 
   test("always passing test - example A", async () => {
     assert(true);
-  }, 30000);
-
-  describe("BStack tests - Module C", () => {
-    jest.retryTimes(2, {retryImmediately: true});
-    test("Test with framework-level retry - 2 retries configured", async () => {
-        const randomOutcome = Math.random() > 0.7;
-        if (!randomOutcome) {
-            throw new Error("Test failed, retrying...");
-        }
-    }, 30000);
-
-    test("Another test with framework-level retry - 2 retries configured", async () => {
-        const randomOutcome = Math.random() > 0.7;
-        if (!randomOutcome) {
-            throw new Error("Test failed, retrying...");
-        }
-    }, 30000);
-  });
+  }, 3000);
 
   test("always passing test - example B", async () => {
     assert(true);
-  }, 30000);
+  }, 3000);
 });
