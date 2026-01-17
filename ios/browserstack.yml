@@ -27,6 +27,10 @@ source: jest-js:appium-sample-main:v1.0
 app: ./BStackSampleApp.ipa
 # app: ./LocalSample.ipa #For running local tests
 
+parallelsPerPlatform: 1
+
+CUSTOM_TAG_1: bstack_sample
+
 # =======================================
 # Platforms (Browsers / Devices to test)
 # =======================================
@@ -40,8 +44,8 @@ platforms:
   - deviceName: iPhone 13 Pro
     osVersion: 15
     platformName: ios
-  - deviceName: iPhone 15 Plus
-    osVersion: 17
+  - deviceName: iPhone 15 Pro
+    osVersion: 18
     platformName: ios
 
 # ==========================================
